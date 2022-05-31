@@ -1,0 +1,6 @@
+{
+    "clientId": "345060820385-g40i755r2pslhiekg5amgrnitiigp6r6.apps.googleusercontent.com",
+    "apiKey": "AIzaSyDn8wOaDuP0lr4vTxnByRl5Mg8e58lW58I",
+    "scope": "https://www.googleapis.com/auth/gmail.readonly",
+    "discoveryDocs": ["https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest"]
+}
