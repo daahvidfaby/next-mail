@@ -11,9 +11,11 @@ export default function AppLayout({ Component, pageProps }) {
             <link rel="icon" href="/favicon.ico" />
             <script src="https://apis.google.com/js/api.js"></script>
         </Head>
-        <SignIn>
-          <Component {...pageProps} />
-        </SignIn>
+        <main class="h-full gradient-form bg-gray-100 md:h-screen">
+          <SignIn>
+            <Component {...pageProps} />
+          </SignIn>
+        </main>
       </>
     )
   }

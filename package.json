@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroicons/react": "^1.0.6",
     "@types/gapi": "^0.0.42",
     "autoprefixer": "^10.4.7",
     "gapi": "^0.0.3",
