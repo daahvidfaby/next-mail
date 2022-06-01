@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import gmailConfig from '../gmail.config.json'
+import gapiConfig from '../../gapi.config.json'
 
 
-export default function Layout({ children }) {
+export default function SignIn({ children }) {
 
     const router = useRouter()
 
@@ -18,9 +18,9 @@ export default function Layout({ children }) {
 
     const initClient = () => {
         gapi.client.init({
-          discoveryDocs: gmailConfig.discoveryDocs,
-          clientId: gmailConfig.clientId,
-          scope: gmailConfig.scope
+          discoveryDocs: gapiConfig.discoveryDocs,
+          clientId: gapiConfig.clientId,
+          scope: gapiConfig.scope
         }).then(function () {
           // Listen for sign-in state changes.
           gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
@@ -43,13 +43,7 @@ export default function Layout({ children }) {
 
     return (
         <>
-        <Head>
-            <title>Next Mail</title>
-            <meta name="description" content="A mail client based on Next.js and Gmail API" />
-            <link rel="icon" href="/favicon.ico" />
-            <script src="https://apis.google.com/js/api.js"></script>
-        </Head>
-        {children}
+            {children}
         </>
     )
 }

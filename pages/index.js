@@ -1,12 +1,5 @@
-import Head from 'next/head'
-import Layout from '../components/layout';
-
-export default function Home() {
-  
-  
-
+export default function Login() {
   return (
-    <Layout>
       <div>
         <div className='h-screen'>
           <div className='flex justify-center items-center h-full'>
@@ -14,6 +7,5 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </Layout>
   )
 }
