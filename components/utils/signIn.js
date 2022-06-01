@@ -10,9 +10,9 @@ export default function SignIn({ children }) {
 
     const updateSigninStatus = (isSignedIn) => {
         if (isSignedIn) {
-        router.push('/list');
+            router.push('/list');
         } else {
-        router.push('/');
+            router.push('/');
         }
     }
 
@@ -38,7 +38,7 @@ export default function SignIn({ children }) {
             clearInterval(loadingInterval);
             }
         }, 100)
-    }, null);
+    }, []);
 
 
     return (
