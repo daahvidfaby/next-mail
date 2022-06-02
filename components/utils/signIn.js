@@ -32,10 +32,10 @@ export default function SignIn({ children }) {
     useEffect(() => {
         let loadingInterval = setInterval(() => {
             if(gapi) {
-            gapi.load('client:auth2', () => {
-                initClient()
-            });
-            clearInterval(loadingInterval);
+                gapi.load('client:auth2', () => {
+                    initClient()
+                });
+                clearInterval(loadingInterval);
             }
         }, 100)
     }, []);

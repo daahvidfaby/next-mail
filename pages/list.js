@@ -1,6 +1,11 @@
+import Header from "../components/layout/header"
+
 function List() {
     return (
-        <div>List</div>
+        <>
+            <Header />
+            <div>List</div>
+        </>
     )
   }
   
