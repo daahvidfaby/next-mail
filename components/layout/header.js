@@ -18,7 +18,7 @@ export default function Header() {
                             </div>
                         </div>
                         <div>
-                            <div className="">
+                            <div className="px-14">
                                 <img src={getImgUrl()} alt="Account image" className="w-12 h-12 rounded-full cursor-pointer" />
                             </div>
                         </div>
