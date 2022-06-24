@@ -16,7 +16,7 @@ export default function Sidebar() {
                     }
 
                     return (
-                        <li className="relative mt-2">
+                        <li className="relative mt-2" key={item}>
                             <a className={"flex items-center text-sm h-12 px-14  text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-500 transition duration-300 ease-in-out " + (isActive ? 'font-semibold text-red-500 text-ellipsis before:absolute  before:h-full before:top-0 before:left-0 before:border-red-400 before:border-l-4' : '')} href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">
                                 <InboxIcon className="w-6 mr-2"/>
                                 <span>Sidenav link 1</span>
