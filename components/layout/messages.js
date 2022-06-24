@@ -3,7 +3,7 @@ export default function Messages() {
 
     return (
         <table className="flex-initial mx-8 mt-4 w-full table-fixed">
-
+            <tbody>
             {[0,1,2,3,4,5].map((message, index) => {
                 
                 return (
@@ -20,7 +20,7 @@ export default function Messages() {
                 )
 
             })}
-
+            </tbody>
         </table>
     )
 
