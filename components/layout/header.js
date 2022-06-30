@@ -1,10 +1,30 @@
 import { MailIcon } from "@heroicons/react/solid";
+import { useEffect, useState } from "react";
 
 export default function Header() {
 
-    const getImgUrl = () => {
-        return 'https://picsum.photos/id/237/200/300';
+    const [imageUrl, setImageUrl] = useState(undefined);
+
+    async function getImgUrl() {
+        let response;
+
+        try {
+            console.log(gapi.auth2.getAuthInstance().currentUser.get()
+            .getBasicProfile().getImageUrl())
+          response = gapi.auth2.getAuthInstance().currentUser.get()
+                        .getBasicProfile().getImageUrl();
+            setImageUrl(response);
+        } catch (err) {
+          console.log(err.message);
+          return;
+        }
     }
+
+    
+
+    useEffect(() => {
+        getImgUrl()
+    });
     
     return (
         <header>
@@ -19,7 +39,11 @@ export default function Header() {
                         </div>
                         <div>
                             <div className="px-14">
-                                <img src={getImgUrl()} alt="Account image" className="w-12 h-12 rounded-full cursor-pointer" />
+                                <div className={"w-12 h-12 rounded-full cursor-pointer overflow-hidden bg-red-500"}>
+                                    {imageUrl ? 
+                                            <img src={imageUrl} referrerpolicy="no-referrer" alt="Account image" className="" />
+                                        :null}
+                                </div>
                             </div>
                         </div>
                     </div>
