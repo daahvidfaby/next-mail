@@ -1,6 +1,29 @@
 import { InboxIcon } from "@heroicons/react/solid";
+import { useState } from "react";
+import { useEffect } from "react";
 
 export default function Sidebar() {
+
+    const [categories, setCategories] = useState([]);
+    const [currentCategory, setCurrentCategory] = useState('inbox');
+
+    async function listCategories() {
+        
+        let displayedCategories = [
+          {name: 'inbox', label: 'Inbox'},
+          {name: 'sent', label: 'Sent'},
+          {name: 'draft', label: 'Draft'}
+        ];
+
+        setCategories(displayedCategories);
+      }
+
+      useEffect(() => {
+        if(categories.length == 0) {
+          listCategories()
+        }
+      });
+
     return (
         <div className="flex-1 py-10 h-full bg-white border-r-2">
             <div className="px-14 mb-8">
@@ -8,21 +31,20 @@ export default function Sidebar() {
             </div>
             <ul className="relative">
 
-                {[0, 1].map(item => {
+                {categories.map((category) => {
                     let isActive = false;
 
-                    if(item == 1) {
+                    if(category.name == currentCategory) {
                         isActive = true;
                     }
 
                     return (
-                        <li className="relative mt-2" key={item}>
+                        <li className="relative mt-2" key={category.name}>
                             <a className={"flex items-center text-sm h-12 px-14  text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-500 transition duration-300 ease-in-out " + (isActive ? 'font-semibold text-red-500 text-ellipsis before:absolute  before:h-full before:top-0 before:left-0 before:border-red-400 before:border-l-4' : '')} href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">
                                 <InboxIcon className="w-6 mr-2"/>
-                                <span>Sidenav link 1</span>
+                                <span>{category.label}</span>
                             </a>
                         </li>
-                    
                     )
 
                 })}

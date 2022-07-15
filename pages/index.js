@@ -1,6 +1,11 @@
 import { MailOpenIcon } from '@heroicons/react/solid'
+import SignIn from '../components/utils/signIn'
+import useUser from "../hooks/User";
 
 export default function Login() {
+
+  const {signIn} = useUser();
+
   return (
     <section className="h-full gradient-form bg-gray-100 md:h-screen">
       <div className="container py-12 px-6 h-full m-auto">
@@ -26,7 +31,7 @@ export default function Login() {
                         <p className="text-sm text-gray-400">No data will be saved</p>
                       </div>
                       <div className='flex items-center h-full'>
-                        <button className='bg-red-500 px-4 py-3 text-lg text-white font-semibold rounded' onClick={() => window.gapi.auth2.getAuthInstance().signIn()}>Sign in with Google</button>
+                        <button className='bg-red-500 px-4 py-3 text-lg text-white font-semibold rounded' onClick={() => signIn()}>Sign in with Google</button>
                       </div>
                     </div>
                   </div>
