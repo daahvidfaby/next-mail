@@ -1,5 +1,4 @@
 import { MailOpenIcon } from '@heroicons/react/solid'
-import SignIn from '../components/utils/signIn'
 import useUser from "../hooks/User";
 
 export default function Login() {

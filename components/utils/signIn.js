@@ -10,7 +10,7 @@ export default function SignIn({ children }) {
 
     const updateSigninStatus = (isSignedIn) => {
         if (isSignedIn) {
-            router.push('/list');
+            router.push('/list/inbox');
         } else {
             router.push('/');
         }

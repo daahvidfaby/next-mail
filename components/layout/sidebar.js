@@ -1,11 +1,11 @@
 import { InboxIcon } from "@heroicons/react/solid";
+import Link from "next/link";
 import { useState } from "react";
 import { useEffect } from "react";
 
-export default function Sidebar() {
+export default function Sidebar({currentCategory}) {
 
     const [categories, setCategories] = useState([]);
-    const [currentCategory, setCurrentCategory] = useState('inbox');
 
     async function listCategories() {
         
@@ -40,10 +40,16 @@ export default function Sidebar() {
 
                     return (
                         <li className="relative mt-2" key={category.name}>
-                            <a className={"flex items-center text-sm h-12 px-14  text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-500 transition duration-300 ease-in-out " + (isActive ? 'font-semibold text-red-500 text-ellipsis before:absolute  before:h-full before:top-0 before:left-0 before:border-red-400 before:border-l-4' : '')} href="#!" data-mdb-ripple="true" data-mdb-ripple-color="dark">
-                                <InboxIcon className="w-6 mr-2"/>
-                                <span>{category.label}</span>
-                            </a>
+                            <Link 
+                              href={'/list/' + category.name}
+                            >
+                                <span
+                                  className={"cursor-pointer flex items-center text-sm h-12 px-14  text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-gray-500 transition duration-300 ease-in-out " + (isActive ? 'font-semibold text-red-500 text-ellipsis before:absolute  before:h-full before:top-0 before:left-0 before:border-red-400 hover:text-red-500 before:border-l-4' : '')} 
+                                >
+                                  <InboxIcon className="w-6 mr-2"/>
+                                  {category.label}
+                                </span>
+                            </Link>
                         </li>
                     )
 
